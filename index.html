@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Better than a Magic 8 Ball.</title>
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+  <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+  <!-- Backbone files -->
+    <script src="models/DecisionModel.js"></script>
+    <script src="collections/Decisions.js"></script>
+    <script src="models/AppModel.js"></script>
+    <script src="models/OptionModel.js"></script>
+    <script src="views/AppView.js"></script>
+    <script src="views/DecisionsView.js"></script>
+    <script src="collections/Options.js"></script>
+    <script src="views/AddChoicesView.js"></script>
+    <script src="views/AddDecisionView.js"></script>
+    <script src="views/RowView.js"></script>
+    <script src="views/AddCriteriaView.js"></script>
+    <script src="views/DecisionView.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+      var app = new AppModel();
+      var appView = new AppView({model: app});
+      $('body').append(appView.render());
+    });
+    </script>
+  </body>
+</html>
