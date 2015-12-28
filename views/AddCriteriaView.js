@@ -1,11 +1,12 @@
 var AddCriteriaView = Backbone.View.extend({
   template: _.template(
     '<h1><%= name %></h1>\
+    <h3>Add criteria to grade by</h3>\
     <form>\
       Criterion #1: <input id="crit1" type="text"><br/>\
       Criterion #2: <input id="crit2" type="text"><br/>\
       Criterion #3: <input id="crit3" type="text"><br/>\
-      <button id="add-crit">+</button>\
+      <button id="remove-crit">-</button>\<button id="add-crit">+</button>\
       <input id="submit-crit" type="submit" value="submit">\
     </form>'
   ),
@@ -25,6 +26,7 @@ var AddCriteriaView = Backbone.View.extend({
 
   events: {
     'click #add-crit': 'addCriteriaField',
+    'click #remove-crit': 'removeCriteriaField',
     'submit': 'addCriteria'
   },
 
@@ -44,12 +46,13 @@ var AddCriteriaView = Backbone.View.extend({
 
   addCriteria: function(event) {
     event.preventDefault();
+    this.model.set('criteria', []);
     var decisionView = new DecisionView({model: this.model});
     //for each criteria in count,
     for (var i = 1; i <= this.model.get('criteriaCount'); i++) {
       //create criteria attributes
-      var critId = '#criteria' + i;
-      this.model.set(critId, $('#crit' + i).val());
+      // var critId = 'criteria' + i;
+      this.model.get('criteria').push($('#crit' + i).val());
     }
     console.log(this.model);
     this.model.showDecisionTable();
