@@ -1,7 +1,15 @@
-.heading {
-  font-size: 1.5em;
+body {
+  margin: 0 auto;
 }
 
 table {
   min-width: 50%;
+}
+
+td input {
+  width: 40px;
+}
+
+.heading {
+  font-size: 1.5em;
 }

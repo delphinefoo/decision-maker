@@ -4,6 +4,8 @@ var AppView = Backbone.View.extend({
     this.nameFormView = new AddDecisionView({collection: this.decisions});
   },
 
+  className: 'container',
+
   render: function() {
     return this.$el.html(this.nameFormView.render());
   },

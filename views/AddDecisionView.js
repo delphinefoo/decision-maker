@@ -1,7 +1,5 @@
 var AddDecisionView = Backbone.View.extend({
 
-  tagName: 'div',
-
   events: {
     'submit': 'addNewDecision'
     //on submit:

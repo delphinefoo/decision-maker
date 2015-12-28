@@ -29,8 +29,8 @@ var AddChoicesView = Backbone.View.extend({
 
   render: function() {
     this.$el.append(this.template(this.model.attributes));
-    $('body').empty();
-    $('body').append(this.$el);
+    $('.container').empty();
+    $('.container').append(this.$el);
   },
 
   addChoiceField: function(event) {
