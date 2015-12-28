@@ -22,11 +22,19 @@ var DecisionView = Backbone.View.extend({
 
   render: function() {
     this.$el.append(this.template(this.model.attributes));
-    var headerRow = '<tr id="criteria"><th></th></tr>'
-    _.forEach(this.model.get('criteria'), function(c) {
-      $(headerRow).append('<th>'+c+'</th>');
-    });
-    this.$el.append(headerRow);
+    //render option rows
+    this.model.get('optionsList').each(function(option) {
+      var row = new RowView({ model: option });
+      var rowEl = row.render();
+      //add empty forms to each row
+      for (var i = 1; i <= this.model.get('criteriaCount'); i++) {
+        var html = '<td><input type="text"></td>';
+        rowEl.append(html);
+      }
+      console.log(rowEl);
+      this.$el.append(rowEl);
+    }, this);
+
     $('body').empty();
     $('body').append(this.$el);
   }
