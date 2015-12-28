@@ -4,21 +4,21 @@ var DecisionView = Backbone.View.extend({
       this.render();
     }, this);
   },
+
+  tagName: 'table',
   //this.$el should be the basic table with headers
-  template: _.template('<table>\
-                          <caption><%= name %></caption>\
+  template: _.template('<caption class="heading"><%= name %></caption>\
                           <thead>\
                             <tr><th>OPTIONS</th><th colspan="<%= criteriaCount %>">CRITERIA</th></tr>\
                           </thead>\
                           <thead>\
                             <tr>\
-                              <th></th<>\
+                              <th></th>\
                               <% _.forEach(this.model.get("criteria"), function(c) {%>'
                               + '<th><%= c %></th>'
                               + '<% })%>\
                             </tr>\
-                          </thead>\
-                        </table>'),
+                          </thead>'),
 
   render: function() {
     this.$el.append(this.template(this.model.attributes));
@@ -31,7 +31,6 @@ var DecisionView = Backbone.View.extend({
         var html = '<td><input type="text"></td>';
         rowEl.append(html);
       }
-      console.log(rowEl);
       this.$el.append(rowEl);
     }, this);
 

@@ -3,9 +3,11 @@ var AddCriteriaView = Backbone.View.extend({
     '<h1><%= name %></h1>\
     <h3>Add criteria to grade by</h3>\
     <form>\
-      Criterion #1: <input id="crit1" type="text"><br/>\
-      Criterion #2: <input id="crit2" type="text"><br/>\
-      Criterion #3: <input id="crit3" type="text"><br/>\
+      <ul>\
+        <li>Criterion #1: <input id="crit1" type="text"></li>\
+        <li>Criterion #2: <input id="crit2" type="text"></li>\
+        <li>Criterion #3: <input id="crit3" type="text"></li>\
+      </ul>\
       <button id="remove-crit">-</button>\<button id="add-crit">+</button>\
       <input id="submit-crit" type="submit" value="submit">\
     </form>'
